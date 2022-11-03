@@ -1,11 +1,13 @@
-# SwiftArcade
+# SwiftArcade #
 <img width="679" alt="logo" src="https://user-images.githubusercontent.com/51410810/199721525-bb6b84eb-93d9-4f3a-a6c1-5b5bb9f07c3d.png">
-A Swift Package for [RetroAchievements]("https://retroachievements.org") API to use in Swift projects
-## Requirements
+A Swift Package for [RetroAchievements](https://retroachievements.org) API to use in Swift projects
+
+
+## Requirements ##
 * [RetroAchivements](https://retroachievements.org) account
 * RetroAchivements API Key
 
-## Examples
+## Examples ##
   ### Get list of consoles
   ```
           SwiftArcade.Shared.getConsoleList(UserName: USER_NAME_HERE, KEY: API_KEY_HERE) { error, console in
