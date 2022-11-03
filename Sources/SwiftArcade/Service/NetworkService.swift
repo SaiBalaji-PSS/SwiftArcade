@@ -8,7 +8,7 @@
 import Foundation
 
 class SwiftArcade{
-    public static var Shared = SwiftArcade()
+   // public var Shared = SwiftArcade()
     let session = URLSession(configuration: .default)
     
     //MARK: - CONSOLE LIST
