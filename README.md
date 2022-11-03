@@ -1,10 +1,10 @@
 # SwiftArcade #
 <img width="679" alt="logo" src="https://user-images.githubusercontent.com/51410810/199721525-bb6b84eb-93d9-4f3a-a6c1-5b5bb9f07c3d.png">
-A Swift Package for [RetroAchievements](https://retroachievements.org) API to use in Swift projects
+A Swift Package for RetroAchievements API to use in Swift projects
 
 
 ## Requirements ##
-* [RetroAchivements](https://retroachievements.org) account
+* [RetroAchievements](https://retroachievements.org) account
 * RetroAchivements API Key
 
 ## Examples ##
