@@ -7,21 +7,21 @@
 
 import Foundation
 
-struct Consoles: Codable{
+public struct Consoles: Codable{
     let console: [[Console]]
 }
-struct Console: Codable{
+public struct Console: Codable{
     let ID: String
     let Name: String
 }
 
 
-struct TopUsers: Codable {
+public struct TopUsers: Codable {
     let top10: Top10
 }
 
 // MARK: - Top10
-struct Top10: Codable {
+public struct Top10: Codable {
     let place1, place2, place3, place4: Place
     let place5, place6, place7, place8: Place
     let place9, place10: Place
@@ -41,15 +41,15 @@ struct Top10: Codable {
 }
 
 
-struct Place: Codable {
+public struct Place: Codable {
     let user, score, trueratio: String
 }
 
 //MARK: - GAME LIST
-struct GamesList: Codable{
+public struct GamesList: Codable{
     let game: [[Game]]
 }
-struct Game: Codable{
+public struct Game: Codable{
     let Title: String
     let ID: String
     let ConsoleID: String
@@ -65,7 +65,7 @@ struct Game: Codable{
 
 //MARK: - GAME INFO EXTENDED
 
-struct GameInfo: Codable{
+public struct GameInfo: Codable{
     let ID: Int
     let Title: String
     let ConsoleID: Int
@@ -84,7 +84,7 @@ struct GameInfo: Codable{
     let Achievements: [String: Trophies]
 }
 
-struct Trophies: Codable{
+public struct Trophies: Codable{
     let Title: String
     let Description: String
     let Points: String
@@ -102,12 +102,12 @@ struct Trophies: Codable{
 
 
 // MARK: - Welcome
-struct Recents: Codable {
+public struct Recents: Codable {
     let recent: [[Recent]]
 }
 
 // MARK: - Recent
-struct Recent: Codable {
+public struct Recent: Codable {
     let gameID, consoleID, consoleName, title: String
     let imageIcon, lastPlayed: String
     let numPossibleAchievements, possibleScore: Achieved

@@ -12,7 +12,7 @@ class SwiftArcade{
     let session = URLSession(configuration: .default)
     
     //MARK: - CONSOLE LIST
-    func getConsoleList(UserName: String,KEY: String,onCompletion:@escaping(Error?,[Console]?)->(Void)){
+    public func getConsoleList(UserName: String,KEY: String,onCompletion:@escaping(Error?,[Console]?)->(Void)){
         let CONSOLE_LIST_URL = "https://ra.hfc-essentials.com/console_id.php?user=+\(UserName)+&key=+\(KEY)+&mode=json"
        
         let task = session.dataTask(with: URLRequest(url: URL(string: CONSOLE_LIST_URL)!)) { data, response, error in
@@ -34,7 +34,7 @@ class SwiftArcade{
     }
     
     //MARK: - TOP TEN USERS
-    func getTopTenUsers(UserName: String,KEY: String,onCompletion:@escaping(Error?,[Place]?)->(Void)){
+    public func getTopTenUsers(UserName: String,KEY: String,onCompletion:@escaping(Error?,[Place]?)->(Void)){
         let TOP_TEN_USERS_URL = "https://ra.hfc-essentials.com/top_ten.php?user=+\(UserName)+&key=+\(KEY)+&mode=json"
         
         let task = session.dataTask(with: URLRequest(url: URL(string: TOP_TEN_USERS_URL)!)) { data, response, error in
@@ -62,7 +62,7 @@ class SwiftArcade{
         task.resume()
     }
     //MARK: - GAMES LIST FOR A GIVEN CONSOLE ID
-    func getGamesList(UserName: String,KEY: String,ConsoleID: Int,onCompletion:@escaping(Error?,[Game]?)->(Void)){
+    public func getGamesList(UserName: String,KEY: String,ConsoleID: Int,onCompletion:@escaping(Error?,[Game]?)->(Void)){
         let GAME_LIST_URL = "https://ra.hfc-essentials.com/game_list.php?user=+\(UserName)+&key=+\(KEY)+&console=\(ConsoleID)&mode=json"
         let task = session.dataTask(with: URLRequest(url: URL(string: GAME_LIST_URL)!)) { data, response, error in
             if let error = error{
@@ -87,7 +87,7 @@ class SwiftArcade{
     
     //MARK: - GAME INFO AND TROPHIES FOR A PARTICULAR GAME
     //Gives both earned and non-earned trophies. Filter the earned from non-earned trophies by filter HOF
-    func getGameInfoAndTropies(UserName: String,KEY: String,GameID: Int,onCompletion:@escaping(Error?,[Trophies]?)->(Void)){
+    public func getGameInfoAndTropies(UserName: String,KEY: String,GameID: Int,onCompletion:@escaping(Error?,[Trophies]?)->(Void)){
         let GAMEINFO_TROPHY_URL = "https://ra.hfc-essentials.com/game_progress.php?user=+\(UserName)+&key=+\(KEY)+&game=\(GameID)&mode=json"
         
         let task = session.dataTask(with: URLRequest(url: URL(string: GAMEINFO_TROPHY_URL)!)) { data, response, error in
@@ -115,7 +115,7 @@ class SwiftArcade{
     }
     
     //MARK: - RECENT GAMES FOR A GIVEN USER
-    func getRecentGames(User: String,KEY: String,OtherUser: String,onCompletion:@escaping(Error?,Recents?)->(Void)){
+    public func getRecentGames(User: String,KEY: String,OtherUser: String,onCompletion:@escaping(Error?,Recents?)->(Void)){
         let RECENT_URL = "https://ra.hfc-essentials.com/user_recent.php?user=+\(User)+&key=+\(KEY)+&member=\(OtherUser)&results=10&mode=json"
         print(RECENT_URL)
       
