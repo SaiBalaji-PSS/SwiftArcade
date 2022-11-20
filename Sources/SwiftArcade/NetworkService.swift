@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SwiftArcade{
+public class SwiftArcade{
    static public var Shared = SwiftArcade()
     let session = URLSession(configuration: .default)
     
