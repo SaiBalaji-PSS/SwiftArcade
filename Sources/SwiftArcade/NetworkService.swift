@@ -87,26 +87,26 @@ public class SwiftArcade{
     
     //MARK: - GAME INFO AND TROPHIES FOR A PARTICULAR GAME
     //Gives both earned and non-earned trophies. Filter the earned from non-earned trophies by filter HOF
-    public func getGameInfoAndTropies(UserName: String,KEY: String,GameID: Int,onCompletion:@escaping(Error?,[Trophies]?)->(Void)){
+    public func getGameInfoAndTropies(UserName: String,KEY: String,GameID: Int,onCompletion:@escaping(Error?,[Trophies]?,GameInfo?)->(Void)){
         let GAMEINFO_TROPHY_URL = "https://ra.hfc-essentials.com/game_progress.php?user=+\(UserName)+&key=+\(KEY)+&game=\(GameID)&mode=json"
         
         let task = session.dataTask(with: URLRequest(url: URL(string: GAMEINFO_TROPHY_URL)!)) { data, response, error in
             if let error = error{
-                onCompletion(error,nil)
+                onCompletion(error,nil,nil)
             }
             if let data = data{
                 do{
                     let decodedData = try JSONDecoder().decode(GameInfo.self, from: data)
-                    print(decodedData.Title)
+                  //  print(decodedData.Title)
                     var Tropies = [Trophies]()
                     for v in decodedData.Achievements.values{
                         Tropies.append(v)
                     }
-                    onCompletion(nil,Tropies)
+                    onCompletion(nil,Tropies,decodedData)
                 }
                 catch{
                     print(error)
-                    onCompletion(error,nil)
+                    onCompletion(error,nil,nil)
                 }
             }
         }
